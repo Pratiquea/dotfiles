@@ -6,6 +6,8 @@
 
 
 ### Installing Gnome
+open the terminal and paste the following commands:
+
   ```
   sudo add-apt-repository ppa:gnome3-team/gnome3-staging -y && \
   sudo add-apt-repository ppa:gnome3-team/gnome3 -y &&\
