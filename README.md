@@ -35,9 +35,9 @@ open the terminal and paste the following commands:
 2. Create a repository from your browser.
 3. Edit ``git config``: 
 ```shell-script
-git config --global user.name "chahatdeep"
-git config --global user.email chahatdeepsingh@gmail.com
-git config --global core.editor emacs
+git config --global user.name "prateek arora"
+git config --global user.email prateekarorav2@gmail.com
+git config --global core.editor sublime
 ```
 *Check your configuration, do ``git config --list``*
 4. Git clone your repository, do `` git clone htttp://github.com/chahatdeep/<repo_name> ``
