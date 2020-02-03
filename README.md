@@ -3,6 +3,9 @@
 ## Table of contents:
 - [Gnome environment](#Installing-Gnome)
 - [Installing GTK themes](#Installing-GTK-themes)
+- [Git Setup](#git-setup)
+- [Google Chrome Setup](#google-chrome)
+
 
 
 ### Installing Gnome
@@ -27,3 +30,45 @@ open the terminal and paste the following commands:
   ```
   
   ```
+### Git setup:
+1. `` sudo apt-get install git-all ``
+2. Create a repository from your browser.
+3. Edit ``git config``: 
+```shell-script
+git config --global user.name "chahatdeep"
+git config --global user.email chahatdeepsingh@gmail.com
+git config --global core.editor emacs
+```
+*Check your configuration, do ``git config --list``*
+4. Git clone your repository, do `` git clone htttp://github.com/chahatdeep/<repo_name> ``
+
+5. cd <repo_name>
+
+6. `` shell-script &&
+git init ``
+
+7. Copy all the files you want to move to the repo.
+
+8. In the repo, do ``git add * ``
+
+9. `` git add LICENSE `` (Optional)
+
+10. `` git commit -m 'initial project version' ``
+
+11. `` git push ``
+
+### Google Chrome:
+- Setup key with: 
+```shell-script
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
+```
+- Setup repository with: 
+```shell-script
+sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+```
+- Setup package with: 
+```shell-script
+sudo apt-get update 
+sudo apt-get install google-chrome-stable
+```
+[Reference](https://www.ubuntuupdates.org/ppa/google_chrome)
