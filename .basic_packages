@@ -1,0 +1,8 @@
+#!/bin/bash
+sudo add-apt-repository ppa:gnome3-team/gnome3-staging -y && \
+sudo add-apt-repository ppa:gnome3-team/gnome3 -y &&\
+sudo apt update && \
+sudo apt dist-upgrade && \
+sudo apt install gnome gnome-shell
+
+sudo apt --ignore-missing install -y vim gnome-tweak-tool git tlp trash-cli nvidia-384 nvidia-384-dev
