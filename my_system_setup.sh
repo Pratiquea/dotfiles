@@ -17,5 +17,11 @@
 #sudo apt -y install gparted
 
 ############## git #######
-sudo apt-get install git-all
+#sudo apt-get install git-all
 
+############## flat mix #######
+#sudo add-apt-repository ppa:daniruiz/flat-remix -y
+#sudo apt update
+#sudo apt -y install flat-remix-gtk
+
+############## flat mix #######
