@@ -40,5 +40,9 @@
 #git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 #cp a.vim ~/.vim/bundle/
 
-############## #######
-#git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+############## Tilix #######
+#sudo apt install tilix
+
+
+############## Open-ssh #######
+#sudo apt install openssh-server
