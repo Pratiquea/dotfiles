@@ -1,12 +1,24 @@
 # Dotfiles [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 
 ## Table of contents:
+- [Configure Vim](#Configure-Vim)
 - [Gnome environment](#Installing-Gnome)
 - [Installing GTK themes](#Installing-GTK-themes)
 - [Git Setup](#git-setup)
 - [Google Chrome Setup](#google-chrome)
 
 
+### Configure Vim
+* Place .vimrc in home directory (i.e. ~/.vimrc) and a.vim in ```~/.vim/bundle/a.vim```
+* Install vim-plug (for more info visit (vim-plug github)[https://github.com/junegunn/vim-plug])
+  ```
+  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  ```
+* Install vundle
+  ```
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  ```
 
 ### Installing Gnome
 open the terminal and paste the following commands:
