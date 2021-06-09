@@ -1,11 +1,12 @@
 # Dotfiles [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 
 ## Table of contents:
-- [Configure Vim](#Configure-Vim)
-- [Gnome environment](#Installing-Gnome)
-- [Installing GTK themes](#Installing-GTK-themes)
+- [Configure Vim](#configure-vim)
+- [Gnome environment](#installing-gnome)
+- [Installing GTK themes](#installing-gtk-themes)
 - [Git Setup](#git-setup)
 - [Google Chrome Setup](#google-chrome)
+- [Nvidia cuda toolkit installation](#nvidia-cuda-toolkit-installation)
 
 
 ### Configure Vim
@@ -42,7 +43,7 @@ open the terminal and paste the following commands:
   ```
   
   ```
-### Git setup:
+### Git setup
 1. `` sudo apt-get install git-all ``
 2. Create a repository from your browser.
 3. Edit ``git config``: 
@@ -69,7 +70,7 @@ git init ``
 
 11. `` git push ``
 
-### Google Chrome:
+### Google Chrome
 - Setup key with: 
 ```shell-script
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
@@ -84,3 +85,70 @@ sudo apt-get update
 sudo apt-get install google-chrome-stable
 ```
 [Reference](https://www.ubuntuupdates.org/ppa/google_chrome)
+
+### Nvidia cuda toolkit installation
+  1. #### Nvidia driver installation
+    First, make sure that you have nvidia drivers installed by running the following command:
+    ```
+    dpkg -l | grep -i nvidia-driver
+    ```
+    if the nvidia drivers aren't installed, install them by using the following command (replace "465" with the version you want):
+    ```
+    sudo apt install nvidia-driver-465
+    ```
+  2. #### Cuda driver installation
+    Install compatible cuda drivers (replace "11-3" with the cuda version compatible with your nvidia driver version):
+    ```
+    sudo apt install cuda-11-3 
+    ```
+  3. #### Uninstall previously installed versions of nvidia cuda toolkit
+    This step is crucial for proper installation of nvidia cuda toolkit. Use the following command to remove existing cuda toolkit installation:
+    ```
+    sudo apt remove cuda-toolkit*
+    sudo rm -rf /usr/local/cuda*
+    ```
+    Remove existing cuda toolkit sources in apt
+    ```
+    sudo rm /etc/apt/sources.list.d/cuda*
+    sudo apt-get autoremove && sudo apt-get autoclean
+    ```
+
+  4. #### Cuda toolkit installation (finally!!!)
+    Browse the version of cuda toolkit you need to install from [CUDA Tookit Archive](https://developer.nvidia.com/cuda-toolkit-archive) and follow the instructions for installation.
+    Below are the installation instructions for cuda toolkit 11.1 using local deb file (refer to the archive for recent links if the following commands do not work)
+    ```
+    wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
+    sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600
+    wget https://developer.download.nvidia.com/compute/cuda/11.1.0/local_installers/cuda-repo-ubuntu1804-11-1-local_11.1.0-455.23.05-1_amd64.deb
+    sudo dpkg -i cuda-repo-ubuntu1804-11-1-local_11.1.0-455.23.05-1_amd64.deb
+    sudo apt-key add /var/cuda-repo-ubuntu1804-11-1-local/7fa2af80.pub
+    sudo apt-get update
+    sudo apt-get -y install cuda
+    ```
+
+  5. #### Verify installation
+    Navigate to cuda installation (replace 11.1 with your version of cuda):
+    ```
+    cd /usr/local/cuda-11.1/samples/1_Utilities/deviceQuery
+    ```
+    if you are unable to find the deviceQuery directory, do so by using the following command and navigate to the directory:
+    ```
+    find -iname "deviceQuery"
+    ```
+    Make and run deviceQuery
+    ```
+    make
+    ./deviceQuery
+    ```
+    This should output a lot of details including (we care about the following only): 
+      * the detected device 
+      * CUDA Runtime Version
+      * Result (should be PASS)
+
+  6. #### Setup environment variables
+    Add the following lines to your ~/.bashrc:
+    ```
+    export PATH=${PATH}:/usr/local/cuda-11.1/bin
+    export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda-11.1/lib64
+    ```
+
