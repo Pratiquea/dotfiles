@@ -87,21 +87,22 @@ sudo apt-get install google-chrome-stable
 [Reference](https://www.ubuntuupdates.org/ppa/google_chrome)
 
 ### Nvidia cuda toolkit installation
-  1. #### Nvidia driver installation
+1. #### Nvidia driver installation
     First, make sure that you have nvidia drivers installed by running the following command:
     ```
     dpkg -l | grep -i nvidia-driver
     ```
+
     if the nvidia drivers aren't installed, install them by using the following command (replace "465" with the version you want):
     ```
     sudo apt install nvidia-driver-465
     ```
-  2. #### Cuda driver installation
-    Install compatible cuda drivers (replace "11-3" with the cuda version compatible with your nvidia driver version):
+2. #### Cuda driver installation
+    Install compatible cuda drivers (replace "11-3" with the cuda version compatible with your nvidia driver version)
     ```
     sudo apt install cuda-11-3 
     ```
-  3. #### Uninstall previously installed versions of nvidia cuda toolkit
+3. #### Uninstall previously installed versions of nvidia cuda toolkit
     This step is crucial for proper installation of nvidia cuda toolkit. Use the following command to remove existing cuda toolkit installation:
     ```
     sudo apt remove cuda-toolkit*
@@ -113,7 +114,7 @@ sudo apt-get install google-chrome-stable
     sudo apt-get autoremove && sudo apt-get autoclean
     ```
 
-  4. #### Cuda toolkit installation (finally!!!)
+4. #### Cuda toolkit installation (finally!!!)
     Browse the version of cuda toolkit you need to install from [CUDA Tookit Archive](https://developer.nvidia.com/cuda-toolkit-archive) and follow the instructions for installation.
     Below are the installation instructions for cuda toolkit 11.1 using local deb file (refer to the archive for recent links if the following commands do not work)
     ```
@@ -126,7 +127,7 @@ sudo apt-get install google-chrome-stable
     sudo apt-get -y install cuda
     ```
 
-  5. #### Verify installation
+5. #### Verify installation
     Navigate to cuda installation (replace 11.1 with your version of cuda):
     ```
     cd /usr/local/cuda-11.1/samples/1_Utilities/deviceQuery
@@ -145,7 +146,8 @@ sudo apt-get install google-chrome-stable
       * CUDA Runtime Version
       * Result (should be PASS)
 
-  6. #### Setup environment variables
+
+6. #### Setup environment variables
     Add the following lines to your ~/.bashrc:
     ```
     export PATH=${PATH}:/usr/local/cuda-11.1/bin
