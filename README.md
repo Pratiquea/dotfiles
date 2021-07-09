@@ -97,12 +97,8 @@ sudo apt-get install google-chrome-stable
     ```
     sudo apt install nvidia-driver-465
     ```
-2. #### Cuda driver installation
-    Install compatible cuda drivers (replace "11-3" with the cuda version compatible with your nvidia driver version)
-    ```
-    sudo apt install cuda-11-3 
-    ```
-3. #### Uninstall previously installed versions of nvidia cuda toolkit
+
+2. #### Uninstall previously installed versions of nvidia cuda toolkit
     This step is crucial for proper installation of nvidia cuda toolkit. Use the following command to remove existing cuda toolkit installation:
     ```
     sudo apt remove cuda-toolkit*
@@ -114,7 +110,7 @@ sudo apt-get install google-chrome-stable
     sudo apt-get autoremove && sudo apt-get autoclean
     ```
 
-4. #### Cuda toolkit installation (finally!!!)
+3. #### Cuda toolkit installation (finally!!!)
     Browse the version of cuda toolkit you need to install from [CUDA Tookit Archive](https://developer.nvidia.com/cuda-toolkit-archive) and follow the instructions for installation.
     Below are the installation instructions for cuda toolkit 11.1 using local deb file (refer to the archive for recent links if the following commands do not work)
     ```
@@ -127,7 +123,7 @@ sudo apt-get install google-chrome-stable
     sudo apt-get -y install cuda
     ```
 
-5. #### Verify installation
+4. #### Verify installation
     Navigate to cuda installation (replace 11.1 with your version of cuda):
     ```
     cd /usr/local/cuda-11.1/samples/1_Utilities/deviceQuery
@@ -147,10 +143,17 @@ sudo apt-get install google-chrome-stable
       * Result (should be PASS)
 
 
-6. #### Setup environment variables
+5. #### Setup environment variables
     Add the following lines to your ~/.bashrc:
     ```
     export PATH=${PATH}:/usr/local/cuda-11.1/bin
     export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda-11.1/lib64
     ```
 
+#### Troubleshooting Installation
+- Type ``` nvidia-smi ``` in the terminal to check if the nvidia-driver is installed properly.
+Reboot the system, if you see the following error: ```NVIDIA NVML Driver/library version mismatch```.
+- Upon rebooting, if the system doesn't boot gui, do the following:
+  - open a session by pressing ``` ctrl + alt + F2 ```
+  - check nvidia driver version ``` dpkg -l | grep -i nvidia ```
+  - if the driver version is not the same one as you installed earlier, remove the existing driver and install the one that you know is compatible with your cuda version.
