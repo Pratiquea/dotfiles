@@ -88,6 +88,8 @@ sudo apt-get install google-chrome-stable
 
 ### Nvidia cuda toolkit installation
 1. #### Nvidia driver installation
+    Check the nvida driver and cudatoolkit compatibilty matrix and determine the version of nvidia driver you need from the following resource: https://docs.nvidia.com/deploy/cuda-compatibility/index.html#deployment-consideration-forward
+    
     First, make sure that you have nvidia drivers installed by running the following command:
     ```
     dpkg -l | grep -i nvidia-driver
