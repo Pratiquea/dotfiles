@@ -97,6 +97,40 @@ sudo apt-get install google-chrome-stable
     ```
     sudo apt install nvidia-driver-465
     ```
+    Reboot the system
+    ```
+    reboot
+    ```
+    Verify if the installation was successful
+    ```
+    nvidia-smi
+    ```
+    You should be able to see the following output on your terminal:
+    ```
+     
+    +-----------------------------------------------------------------------------+
+    | NVIDIA-SMI 465.19.01    Driver Version: 465.19.01    CUDA Version: 11.3     |
+    |-------------------------------+----------------------+----------------------+
+    | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+    | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+    |                               |                      |               MIG M. |
+    |===============================+======================+======================|
+    |   0  NVIDIA GeForce ...  On   | 00000000:01:00.0  On |                  N/A |
+    | 30%   36C    P8    16W / 350W |    169MiB / 24259MiB |      5%      Default |
+    |                               |                      |                  N/A |
+    +-------------------------------+----------------------+----------------------+
+                                                                               
+    +-----------------------------------------------------------------------------+
+    | Processes:                                                                  |
+    |  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+    |        ID   ID                                                   Usage      |
+    |=============================================================================|
+    |    0   N/A  N/A      1150      G   /usr/lib/xorg/Xorg                 78MiB |
+    |    0   N/A  N/A      1341      G   /usr/bin/gnome-shell               83MiB |
+    |    0   N/A  N/A      1908      G   ...mviewer/tv_bin/TeamViewer        4MiB |
+    +-----------------------------------------------------------------------------+
+
+    ```
 
 2. #### Uninstall previously installed versions of nvidia cuda toolkit
     This step is crucial for proper installation of nvidia cuda toolkit. Use the following command to remove existing cuda toolkit installation:
