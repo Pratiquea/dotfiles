@@ -87,6 +87,7 @@ sudo apt-get install google-chrome-stable
 [Reference](https://www.ubuntuupdates.org/ppa/google_chrome)
 
 ### Nvidia cuda toolkit installation
+[Ubuntu 20.04 index of cuda repo](https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/)
 1. #### Nvidia driver installation
     Check the nvida driver and cudatoolkit compatibilty matrix and determine the version of nvidia driver you need from the following resource: https://docs.nvidia.com/deploy/cuda-compatibility/index.html#deployment-consideration-forward
     
